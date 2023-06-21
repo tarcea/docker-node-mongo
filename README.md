@@ -94,5 +94,3 @@ environment:
 depends_on:
   - mongo
 ```
-
-- ljhohroihgri
