@@ -28,7 +28,7 @@ To remove all the containers and the volumes in a docker-compose file, run:
 
 `docker-compose down -v`
 
-### Ad ENV to your project
+### Add ENV to your project
 
 We need to define `NODE_ENV` variable as 'development', 'production' or 'test'
 
@@ -54,3 +54,45 @@ Instead, you can 'up' your containers and then use `docker volume prune` to clea
 `docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d`
 
 `docker-compose -f docker-compose.yml -f docker-compose.prod.yml down`
+
+### Add mongo
+
+Add the service in `docker-compose.yml` and call it 'mongo'
+
+```yml
+mongo:
+  image: mongo
+  environment:
+    MONGO_INITDB_ROOT_USERNAME: root
+    MONGO_INITDB_ROOT_PASSWORD: example
+  volumes:
+    - mongo-db:/data/db
+volumes:
+  mongo-db:
+```
+
+- we use an external docker image: mongo
+- we set the database username and password as environment variables
+- we build a volume to persist our database over the container dropping
+- for the previous volume to work we have to declare a general volume (like in the last line of the above snippet)
+
+### Add mongo connection
+
+- add the code in `index.js`
+- update environment in `docker-compose.dev.yml`
+
+```yaml
+environment:
+  - NODE_ENV=development
+  - MONGO_USER=root
+  - MONGO_PASSWORD=example
+```
+
+- update server service in `docker-compose.yml`
+
+```yaml
+depends_on:
+  - mongo
+```
+
+- ljhohroihgri

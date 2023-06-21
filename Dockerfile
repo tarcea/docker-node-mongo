@@ -16,4 +16,4 @@ ENV PORT 3001
 
 EXPOSE $PORT
 
-CMD [ "npm", "run", "dev" ]
+CMD [ "node", "run", "dev" ]
