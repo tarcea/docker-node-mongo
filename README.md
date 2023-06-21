@@ -38,3 +38,19 @@ If `NODE_ENV=development` `RUN npm install`
 If `NODE_ENV=production` `RUN npm install --only=production`
 
 In production we don't need to install `devDependencies`
+
+# DEVELOPMENT
+
+`docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d`
+
+`docker-compose -f docker-compose.yml -f docker-compose.dev.yml down` if you use `-v` flag when down the containers, all the volumes will be also deleted, including eventually your database!!!!
+
+So, take care when use that flag!!!!
+
+Instead, you can 'up' your containers and then use `docker volume prune` to clean all unused volumes!!!!
+
+# PRODUCTION
+
+`docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d`
+
+`docker-compose -f docker-compose.yml -f docker-compose.prod.yml down`
