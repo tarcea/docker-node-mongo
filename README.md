@@ -18,6 +18,12 @@ To start a container from a certain image:
 
 Create `docker-compose.yml`
 
+To start all the containers and the volumes in a docker-compose file, run:
+
+`docker-compose up -d` or
+
+`docker-compose up -d` in detached mode
+
 To remove all the containers and the volumes in a docker-compose file, run:
 
 `docker-compose down -v`
