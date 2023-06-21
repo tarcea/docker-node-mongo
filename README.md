@@ -20,7 +20,7 @@ Create `docker-compose.yml`
 
 To start all the containers and the volumes in a docker-compose file, run:
 
-`docker-compose up -d` or
+`docker-compose up` or
 
 `docker-compose up -d` in detached mode
 
