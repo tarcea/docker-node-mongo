@@ -17,3 +17,7 @@ To start a container from a certain image:
 `docker run -p 3001:3001 -d --name node-server tarcea/node-mongo-template`
 
 Create `docker-compose.yml`
+
+To remove all the containers and the volumes in a docker-compose file, run:
+
+`docker-compose down -v`
