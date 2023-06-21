@@ -27,3 +27,14 @@ To start all the containers and the volumes in a docker-compose file, run:
 To remove all the containers and the volumes in a docker-compose file, run:
 
 `docker-compose down -v`
+
+### Ad ENV to your project
+
+We need to define `NODE_ENV` variable as 'development', 'production' or 'test'
+
+and based on that value to change the 'RUN' in `Dockerfile`
+
+If `NODE_ENV=development` `RUN npm install`
+If `NODE_ENV=production` `RUN npm install --only=production`
+
+In production we don't need to install `devDependencies`

@@ -7,3 +7,5 @@ services:
     volumes:
       - ./:/app:ro
       - /app/node_modules
+    environment:
+      - PORT=3001
