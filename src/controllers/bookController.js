@@ -40,7 +40,7 @@ exports.createBook = async (req, res, next) => {
   }
 };
 
-exports.createBook = async (req, res, next) => {
+exports.updateBook = async (req, res, next) => {
   try {
     const book = Book.findByIdAndUpdate(req.params.id, req.body, {
       new: true,

@@ -6,8 +6,10 @@ const {
   MONGO_PORT,
   MONGO_IP,
 } = require('../config/config');
+const bookRouter = require('./routes/bookRoutes');
 
 const app = express();
+app.use(express.json());
 
 const PORT = process.env.PORT || 3001;
 
@@ -28,5 +30,7 @@ connect();
 app.get('/', (req, res) => {
   res.json({ message: 'hello gogo 333' });
 });
+
+app.use('/api/v1/books', bookRouter);
 
 app.listen(PORT, () => console.log(`server listening on port ${PORT}`));
