@@ -59,7 +59,7 @@ COMPOSE_FILE=docker-compose.yml:docker-compose.dev.yml
 
 and then just use `docker-compose up` or `docker-compose down` or any other `docker-compose` related command.
 
-When you want to use this approach in production, just change the `dev.yml` with `prod.yml`
+When you want to use this approach in production, just change the `dev.yml` with `prod.yml` in the `.env` file
 
 # PRODUCTION
 
