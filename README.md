@@ -49,6 +49,18 @@ So, take care when use that flag!!!!
 
 Instead, you can 'up' your containers and then use `docker volume prune` to clean all unused volumes!!!!
 
+Running severat `.yml` files can be done also using the `.env` file where you can set:
+
+```js
+
+COMPOSE_FILE=docker-compose.yml:docker-compose.dev.yml
+
+```
+
+and then just use `docker-compose up` or `docker-compose down` or any other `docker-compose` related command.
+
+When you want to use this approach in production, just change the `dev.yml` with `prod.yml`
+
 # PRODUCTION
 
 `docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d`
