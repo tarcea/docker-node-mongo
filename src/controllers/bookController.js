@@ -2,7 +2,7 @@ const Book = require('../models/bookModel');
 
 exports.getAllBooks = async (req, res, next) => {
   try {
-    const books = Book.find();
+    const books = await Book.find();
 
     res.status(200).json({
       status: 'succes',
@@ -10,13 +10,14 @@ exports.getAllBooks = async (req, res, next) => {
       data: { books },
     });
   } catch (err) {
+    console.log(err);
     res.status(400).json({ status: 'fail' });
   }
 };
 
 exports.getOneBook = async (req, res, next) => {
   try {
-    const book = Book.findById(req.params.id);
+    const book = await Book.findById(req.params.id);
 
     res.status(200).json({
       status: 'succes',
@@ -29,7 +30,7 @@ exports.getOneBook = async (req, res, next) => {
 
 exports.createBook = async (req, res, next) => {
   try {
-    const book = Book.create(req.body);
+    const book = await Book.create(req.body);
 
     res.status(201).json({
       status: 'succes',
@@ -42,7 +43,7 @@ exports.createBook = async (req, res, next) => {
 
 exports.updateBook = async (req, res, next) => {
   try {
-    const book = Book.findByIdAndUpdate(req.params.id, req.body, {
+    const book = await Book.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true,
     });
