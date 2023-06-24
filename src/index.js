@@ -13,7 +13,7 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 3001;
 
-connectionString = `mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_IP}:${MONGO_PORT}/?authSource=admin`;
+const connectionString = `mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_IP}:${MONGO_PORT}/?authSource=admin`;
 const connect = async () => {
   try {
     await mongoose.connect(connectionString);
