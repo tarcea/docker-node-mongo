@@ -52,10 +52,6 @@ app.use(
   })
 );
 
-app.get('/', (req, res) => {
-  res.json({ message: 'hello gogo 333' });
-});
-
 app.use('/api/v1/books', bookRouter);
 app.use('/api/v1/users', userRouter);
 
