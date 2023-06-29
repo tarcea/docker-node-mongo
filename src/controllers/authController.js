@@ -29,13 +29,15 @@ exports.login = async (req, res) => {
     const user = await User.findOne({ username });
 
     if (!user) {
-      res.status(404).json({ status: 'fail', message: 'user not found' });
+      return res
+        .status(404)
+        .json({ status: 'fail', message: 'user not found' });
     }
 
     const isCorrectPassword = bcrypt.compare(password, user.password);
 
     if (!isCorrectPassword) {
-      res
+      return res
         .status(400)
         .json({ status: 'fail', message: 'incorrect credentials' });
     }
