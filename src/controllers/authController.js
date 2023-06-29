@@ -12,6 +12,7 @@ exports.signUp = async (req, res) => {
     });
 
     user.password = undefined;
+    req.session.user = user;
 
     res.status(201).json({
       status: 'success',
@@ -40,6 +41,8 @@ exports.login = async (req, res) => {
     }
 
     user.password = undefined;
+
+    req.session.user = user;
 
     res.status(201).json({
       status: 'success',
