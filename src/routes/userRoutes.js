@@ -14,9 +14,10 @@ router.get('/dashboard', checkUser, (req, res) => {
     return res.status(401).json({ status: 'fail', message: 'unauthorized' });
   }
 
-  res
-    .status(200)
-    .json({ status: 'success', data: { userName: user.username } });
+  res.status(200).json({
+    status: 'success',
+    data: { userName: user.username, uid: user._id },
+  });
 });
 
 module.exports = router;
