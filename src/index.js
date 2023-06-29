@@ -7,6 +7,7 @@ const {
   MONGO_IP,
 } = require('../config/config');
 const bookRouter = require('./routes/bookRoutes');
+const userRouter = require('./routes/userRoutes');
 
 const app = express();
 app.use(express.json());
@@ -32,5 +33,6 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/v1/books', bookRouter);
+app.use('/api/v1/users', userRouter);
 
 app.listen(PORT, () => console.log(`server listening on port ${PORT}`));
