@@ -38,6 +38,8 @@ const redisClient = createClient({ url: REDIS_URL });
 const store = new RedisStore({ client: redisClient });
 redisClient.connect().catch(console.error);
 
+app.enable('trust proxy');
+
 app.use(
   session({
     store,
